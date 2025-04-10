@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
             
-            header('Location:../Views/tite.html');
+            header('Location:../Views/student_health_record.php');
         } else {
             // Login failed, redirect or show error
             header('Location:../index.html');

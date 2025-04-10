@@ -1,0 +1,56 @@
+<form action="submit_health_record.php" method="POST">
+    <h2>Student Health Record</h2>
+  
+    <label>Student ID:</label>
+    <input type="number" name="student_id" required><br>
+  
+    <label>First Name:</label>
+    <input type="text" name="first_name" required><br>
+  
+    <label>Last Name:</label>
+    <input type="text" name="last_name" required><br>
+  
+    <label>Gender:</label>
+    <select name="gender" required>
+      <option value="">Select</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select><br>
+  
+    <label>Date of Birth:</label>
+    <input type="date" name="date_of_birth" required><br>
+  
+    <label>Blood Type:</label>
+    <input type="text" name="blood_type"><br>
+  
+    <label>Allergies:</label>
+    <textarea name="allergies"></textarea><br>
+  
+    <label>Medical Conditions:</label>
+    <textarea name="medical_conditions"></textarea><br>
+  
+    <label>Vaccinations:</label>
+    <textarea name="vaccinations"></textarea><br>
+  
+    <label>Emergency Contact Name:</label>
+    <input type="text" name="emergency_contact_name"><br>
+  
+    <label>Emergency Contact Phone:</label>
+    <input type="tel" name="emergency_contact_phone"><br>
+  
+    <label>Physician Name:</label>
+    <input type="text" name="physician_name"><br>
+  
+    <label>Physician Phone:</label>
+    <input type="tel" name="physician_phone"><br>
+  
+    <label>Last Checkup Date:</label>
+    <input type="date" name="last_checkup_date"><br>
+  
+    <label>Health Status:</label>
+    <textarea name="health_status"></textarea><br>
+  
+    <button type="submit">Submit</button>
+  </form>
+  
