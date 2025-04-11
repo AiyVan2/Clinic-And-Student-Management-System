@@ -12,6 +12,7 @@ if (isset($_GET['id'])) {
         echo "<h3>Student Health Record Details</h3>";
         echo "<p><strong>Student ID:</strong> " . htmlspecialchars($record['student_id']) . "</p>";
         echo "<p><strong>Name:</strong> " . htmlspecialchars($record['first_name']) . " " . htmlspecialchars($record['last_name']) . "</p>";
+        echo "<p><strong>Email:</strong> " . htmlspecialchars($record['email']) . "</p>";
         echo "<p><strong>Gender:</strong> " . htmlspecialchars($record['gender']) . "</p>";
         echo "<p><strong>Date of Birth:</strong> " . htmlspecialchars($record['date_of_birth']) . "</p>";
         echo "<p><strong>Blood Type:</strong> " . htmlspecialchars($record['blood_type']) . "</p>";

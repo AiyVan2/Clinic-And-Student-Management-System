@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $student_id = $_POST['student_id'];
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
     $gender = $_POST['gender'];
     $date_of_birth = $_POST['date_of_birth'];
     $blood_type = $_POST['blood_type'] ?? null;
@@ -22,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = $conn->prepare("
         INSERT INTO student_health_records (
-            student_id, first_name, last_name, gender, date_of_birth,
+            student_id, first_name, last_name, email, gender, date_of_birth,
             blood_type, allergies, medical_conditions, vaccinations,
             emergency_contact_name, emergency_contact_phone,
             physician_name, physician_phone, last_checkup_date, health_status
@@ -31,10 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $stmt->bind_param(
-        "issssssssssssss",
+        "isssssssssssssss",
         $student_id,
         $first_name,
         $last_name,
+        $email,
         $gender,
         $date_of_birth,
         $blood_type,

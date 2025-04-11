@@ -1,4 +1,4 @@
-<form action="submit_health_record.php" method="POST">
+<form action="../Controllers/add_health_record.php" method="POST">
     <h2>Student Health Record</h2>
   
     <label>Student ID:</label>
@@ -10,6 +10,9 @@
     <label>Last Name:</label>
     <input type="text" name="last_name" required><br>
   
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br>
+
     <label>Gender:</label>
     <select name="gender" required>
       <option value="">Select</option>

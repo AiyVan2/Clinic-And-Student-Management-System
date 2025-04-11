@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
 </head>
 <body>
     <h2>Update Student Health Record</h2>
-    <form action="../Controllers/update_health_record_process.php" method="post">
+    <form action="../Controllers/update_health_record.php" method="post">
         <input type="hidden" name="record_id" value="<?= $record['record_id'] ?>">
 
         <label>Student ID:</label><br>
@@ -35,6 +35,9 @@ if (isset($_GET['id'])) {
 
         <label>Last Name:</label><br>
         <input type="text" name="last_name" value="<?= htmlspecialchars($record['last_name']) ?>" required><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" value="<?= isset($record['email']) ? htmlspecialchars($record['email']) : '' ?>" required><br>
 
         <label>Gender:</label><br>
         <select name="gender" required>

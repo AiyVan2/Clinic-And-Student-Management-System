@@ -62,7 +62,7 @@ $result = $conn->query("SELECT record_id, student_id, first_name, last_name FROM
 
 <h2 style="text-align:center;">Student Health Records</h2>
 
-<a class="button" href="add_student_health_record.html">+ Add New Record</a>
+<a class="button" href="add_student_health_record.php">+ Add New Record</a>
 
 <table>
     <tr>
