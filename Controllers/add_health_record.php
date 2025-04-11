@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $physician_name = $_POST['physician_name'] ?? null;
     $physician_phone = $_POST['physician_phone'] ?? null;
     $last_checkup_date = $_POST['last_checkup_date'] ?? null;
+    $status = $_POST['status'] ?? null;
     $health_status = $_POST['health_status'] ?? null;
 
 
@@ -26,13 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             student_id, first_name, last_name, email, gender, date_of_birth,
             blood_type, allergies, medical_conditions, vaccinations,
             emergency_contact_name, emergency_contact_phone,
-            physician_name, physician_phone, last_checkup_date, health_status
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            physician_name, physician_phone, last_checkup_date, status, health_status
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ");
 
 
     $stmt->bind_param(
-        "isssssssssssssss",
+        "issssssssssssssss",
         $student_id,
         $first_name,
         $last_name,
@@ -48,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $physician_name,
         $physician_phone,
         $last_checkup_date,
+        $status,
         $health_status
     );
 

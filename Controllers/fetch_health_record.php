@@ -23,6 +23,7 @@ if (isset($_GET['id'])) {
         echo "<p><strong>Physician:</strong> " . htmlspecialchars($record['physician_name']) . " (" . htmlspecialchars($record['physician_phone']) . ")</p>";
         echo "<p><strong>Last Checkup:</strong> " . htmlspecialchars($record['last_checkup_date']) . "</p>";
         echo "<p><strong>Health Status:</strong> " . nl2br(htmlspecialchars($record['health_status'])) . "</p>";
+        echo "<p><strong>Status</strong> " . nl2br(htmlspecialchars($record['status'])) . "</p>";
     } else {
         echo "Record not found.";
     }

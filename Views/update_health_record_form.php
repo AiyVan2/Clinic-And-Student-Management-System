@@ -75,6 +75,12 @@ if (isset($_GET['id'])) {
 
         <label>Last Checkup Date:</label><br>
         <input type="date" name="last_checkup_date" value="<?= $record['last_checkup_date'] ?>"><br>
+        
+        <label for="status">Status:</label>
+        <select name="status" id="status" required>
+        <option value="Fit For School">Fit For School</option>
+        <option value="For Monitoring">For Monitoring</option>
+        </select>
 
         <label>Health Status:</label><br>
         <textarea name="health_status"><?= htmlspecialchars($record['health_status']) ?></textarea><br><br>

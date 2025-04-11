@@ -50,7 +50,13 @@
   
     <label>Last Checkup Date:</label>
     <input type="date" name="last_checkup_date"><br>
-  
+
+    <label for="status">Status:</label>
+    <select name="status" id="status" required>
+    <option value="Fit For School">Fit For School</option>
+    <option value="For Monitoring">For Monitoring</option>
+    </select>
+
     <label>Health Status:</label>
     <textarea name="health_status"></textarea><br>
   
