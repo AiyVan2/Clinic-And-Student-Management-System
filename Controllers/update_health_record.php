@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     );
 
     if ($stmt->execute()) {
-        header("Location: ../Views/student_health_record.php");
+        header("Location: ../Views/admin_dashboard.php");
         exit;
     } else {
         echo "Failed to update record: " . $conn->error;
