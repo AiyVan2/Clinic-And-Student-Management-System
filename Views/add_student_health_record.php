@@ -8,13 +8,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
-    <div class="container mx-auto px-4 py-8">
-        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="bg-green-600 py-4 px-6">
-                <h1 class="text-2xl font-bold text-white flex items-center">
-                    <i class="fas fa-file-medical mr-3"></i>Add Student Health Record
-                </h1>
-            </div>
+    <div class="flex">
+       
+        <!-- Navbar -->
+        <?php include '../includes/navbar.php';?>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 p-8">
+            
             
             <form action="../Controllers/add_health_record.php" method="POST" class="py-6 px-8">
                 <!-- Form divided into sections -->
@@ -163,8 +164,13 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="mb-4">
                                 <label for="emergency_contact_name" class="block text-gray-700 text-sm font-medium mb-2">Emergency Contact Name</label>
-                                <input type="text" name="emergency_contact_name" id="emergency_contact_name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50">
+                            <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-user-md text-gray-400"></i>
+                                    </div>
+                                <input type="text" name="emergency_contact_name" id="emergency_contact_name" class="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50">
                             </div>
+                        </div>
 
                             <div class="mb-4">
                                 <label for="emergency_contact_phone" class="block text-gray-700 text-sm font-medium mb-2">Emergency Contact Phone</label>

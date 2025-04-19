@@ -14,7 +14,12 @@ $result = $conn->query($query);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
-    <div class="container mx-auto px-4 py-8">
+    <div class="flex">
+        <!-- Navbar -->
+       <?php include '../includes/navbar.php';?>
+        <!-- Main Content Area -->
+        <div class="flex-1 p-8">
+
         <!-- Header -->
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-3xl font-bold text-gray-800">
@@ -31,7 +36,7 @@ $result = $conn->query($query);
                 <h2 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">
                     <i class="fas fa-users text-green-600 mr-2"></i>Send to All Students
                 </h2>
-                <form action="../Controllers/send_reminders.php" method="POST">
+                <form action="../Controllers/send_reminders_all.php" method="POST">
                     <div class="mb-4">
                         <label for="all-message" class="block text-sm font-medium text-gray-700 mb-2">Reminder Message:</label>
                         <textarea 

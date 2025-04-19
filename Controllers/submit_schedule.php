@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             echo "Appointment request submitted. Waiting for confirmation!";
+            header('Location: ../index.php');
         } else {
             echo "Error: " . $stmt->error;
         }

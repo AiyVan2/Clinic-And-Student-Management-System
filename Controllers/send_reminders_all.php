@@ -42,6 +42,7 @@ while ($row = $result->fetch_assoc()) {
     
         $mail->send();
         echo "Reminder sent to $email<br>";
+        header('Location: ../Views/send_reminder_form.php');
     } catch (Exception $e) {
         echo "Failed to send to $email: {$mail->ErrorInfo}<br>";
     }

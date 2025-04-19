@@ -59,6 +59,7 @@ if (isset($_GET['id'])) {
 
                 if ($mail->send()) {
                     echo "<script>alert('Appointment confirmed and email sent!');</script>";
+                    header('Location: ../Views/appointments.php');
                 } else {
                     echo "<script>alert('Appointment confirmed, but email failed to send.');</script>";
                 }

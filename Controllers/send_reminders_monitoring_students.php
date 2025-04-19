@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'], $_POST['mess
 
         $mail->send();
         echo "Reminder sent to $email.";
+        header('Location: ../Views/send_reminder_form.php');
     } catch (Exception $e) {
         echo "Failed to send to $email: {$mail->ErrorInfo}";
     }
