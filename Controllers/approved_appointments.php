@@ -39,12 +39,12 @@ if (isset($_GET['id'])) {
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com'; // or your mail host
                 $mail->SMTPAuth = true;
-                $mail->Username = 'ivanzky22@gmail.com';
-                $mail->Password = 'xeiv jtzh rned wqxg';
+                $mail->Username = 'gmail mo';
+                $mail->Password = 'code mo';
                 $mail->SMTPSecure = 'tls';
                 $mail->Port = 587;
 
-                $mail->setFrom('ivanzky22@gmail.com', 'Clinic Admin');
+                $mail->setFrom('gmail mo', 'Clinic Admin');
                 $mail->addAddress($appointment['email'], $appointment['first_name'] . ' ' . $appointment['last_name']);
 
                 $mail->isHTML(true);
