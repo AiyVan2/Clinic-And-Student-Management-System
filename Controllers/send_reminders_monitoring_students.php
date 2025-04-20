@@ -26,12 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'], $_POST['mess
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'ivanzky22@gmail.com';
-        $mail->Password   = 'xeiv jtzh rned wqxg'; // App Password
+        $mail->Username   = 'gmail mo';
+        $mail->Password   = 'gmail code'; // App Password
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
-        $mail->setFrom('ivanzky22@gmail.com', 'School Clinic');
+        $mail->setFrom('gmail mo', 'School Clinic');
         $mail->addAddress($email, $name);
 
         $mail->isHTML(true);

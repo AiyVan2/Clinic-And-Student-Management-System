@@ -26,13 +26,13 @@ while ($row = $result->fetch_assoc()) {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com'; // Or your mail server
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'ivanzky22@gmail.com';     // Your Gmail
-        $mail->Password   = 'xeiv jtzh rned wqxg';        // Use App Password for Gmail
+        $mail->Username   = 'gmail mo';     // Your Gmail
+        $mail->Password   = 'gmail code';        // Use App Password for Gmail
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
         //Recipients
-        $mail->setFrom('ivanzky22@gmail.com', 'School Clinic');
+        $mail->setFrom('gmail mo', 'School Clinic');
         $mail->addAddress($email, $name);
         $mail->Body    = "Hi $name,<br><br>$customMessage<br><br>- School Clinic";
 
