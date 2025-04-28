@@ -162,7 +162,8 @@ if ($selected_date) {
     <nav class="nav-gradient p-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <a href="#" class="text-white text-2xl font-bold flex items-center mb-4 md:mb-0">
-                <i class="fas fa-heartbeat mr-2 text-3xl"></i>
+                <!-- <i class="fas fa-heartbeat mr-2 text-3xl"></i> -->
+                <img src ="Images/Zelene_Logo.png" alt= "Zelene logo" width="40" height="auto" style="margin-right:10px">
                 <span>School Clinic</span>
             </a>
             <ul class="flex flex-wrap space-x-2 md:space-x-8 text-center">
@@ -343,7 +344,8 @@ if ($selected_date) {
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <a href="#" class="text-2xl font-bold flex items-center">
-                        <i class="fas fa-heartbeat mr-2"></i>
+                        <!-- <i class="fas fa-heartbeat mr-2"></i> -->
+                        <img src ="Images/Zelene_Logo.png" alt= "Zelene logo" width="35" height="auto" style="margin-right:10px">
                         <span>School Clinic</span>
                     </a>
                     <p class="mt-2 text-green-100">Taking care of your health needs</p>

@@ -1,6 +1,6 @@
-<?php include_once '../Config/db.php'; // Make sure path is correct
+<?php include_once '../Config/db.php'; 
 
-// Handle filtering
+
 $whereConditions = [];
 $params = [];
 
@@ -14,14 +14,14 @@ if (isset($_GET['status']) && !empty($_GET['status'])) {
     $params[] = $_GET['status'];
 }
 
-// Build query
+
 $query = "SELECT * FROM appointment_requests";
 if (!empty($whereConditions)) {
     $query .= " WHERE " . implode(" AND ", $whereConditions);
 }
 $query .= " ORDER BY appointment_date ASC, appointment_time ASC";
 
-// Prepare and execute statement if there are parameters
+
 if (!empty($params)) {
     $stmt = $conn->prepare($query);
     $stmt->bind_param(str_repeat("s", count($params)), ...$params);
@@ -55,11 +55,11 @@ if (!empty($params)) {
                 <h1 class="text-3xl font-bold text-gray-800">
                     <i class="fas fa-calendar-check text-purple-600 mr-2"></i>Appointment Requests
                 </h1>
-                <div class="flex space-x-4">
+                <!-- <div class="flex space-x-4">
                     <a href="admin_dashboard.php" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded shadow transition duration-200 flex items-center">
                         <i class="fas fa-arrow-left mr-2"></i> Back to Records
                     </a>
-                </div>
+                </div> -->
             </div>
         
         <!-- Filter Controls (Moved to top) -->

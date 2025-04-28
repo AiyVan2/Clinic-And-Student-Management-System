@@ -25,9 +25,9 @@ $result = $conn->query($query);
             <h1 class="text-3xl font-bold text-gray-800">
                 <i class="fas fa-bell text-blue-600 mr-2"></i>Send Health Reminders
             </h1>
-            <a href="admin_dashboard.php" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded shadow transition duration-200 flex items-center">
+            <!-- <a href="admin_dashboard.php" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded shadow transition duration-200 flex items-center">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Records
-            </a>
+            </a> -->
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">

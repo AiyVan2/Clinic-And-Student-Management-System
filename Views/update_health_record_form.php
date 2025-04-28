@@ -26,13 +26,18 @@ if (isset($_GET['id'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
-    <div class="container mx-auto px-4 py-8">
-        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="bg-blue-600 py-4 px-6">
-                <h1 class="text-2xl font-bold text-white flex items-center">
-                    <i class="fas fa-edit mr-3"></i>Update Student Health Record
-                </h1>
-            </div>
+<div class="flex">
+
+ <!-- Navbar -->
+ <?php include '../includes/navbar.php';?>
+
+   <!-- Main Content Area -->
+   <div class="flex-1 p-8"> 
+
+            <div class="bg-white rounded-lg shadow-md mb-6">
+                <div class="border-b border-gray-200 px-6 py-4">
+                    <h1 class="text-2xl font-bold text-gray-800">Update Health Record</h1>
+                </div>
             
             <form action="../Controllers/update_health_record.php" method="POST" class="py-6 px-8">
                 <input type="hidden" name="record_id" value="<?= $record['record_id'] ?>">
@@ -220,7 +225,7 @@ if (isset($_GET['id'])) {
 
                 <!-- Submit Button -->
                 <div class="mt-8 flex justify-end">
-                    <a href="admin_dashboard.php" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-2 inline-flex items-center transition duration-200">
+                    <a href="admin_dashboard.php" class="bg-red-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-2 inline-flex items-center transition duration-200">
                         <i class="fas fa-arrow-left mr-2"></i> Cancel
                     </a>
                     <button type="submit" href="../Controllers/update_health_record.php" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center transition duration-200">
@@ -230,6 +235,7 @@ if (isset($_GET['id'])) {
             </form>
         </div>
     </div>
+</div>
 
     <script>
     // Auto-format phone number inputs when initially loading
