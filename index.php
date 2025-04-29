@@ -22,7 +22,11 @@ if ($selected_date) {
     $stmt->execute();
     $result = $stmt->get_result();
     while ($row = $result->fetch_assoc()) {
-        $booked_times[] = $row['appointment_time'];
+        $hour = substr($row['appointment_time'], 0, 2); // Get hour only
+        if (!isset($booked_times[$hour])) {
+            $booked_times[$hour] = 0;
+        }
+        $booked_times[$hour]++;
     }
     $stmt->close();
 }
@@ -283,10 +287,17 @@ if ($selected_date) {
                                 class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
                                 <option value="">-- Select Time Slot --</option>
                                 <?php foreach ($available_slots as $time => $label): ?>
-                                    <?php if (!in_array($time, $booked_times)): ?>
-                                        <option value="<?= $time ?>"><?= $label ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
+    <?php
+        $hour = substr($time, 0, 2);
+        $count = $booked_times[$hour] ?? 0;
+        $remaining = 10 - $count;
+    ?>
+    <?php if ($remaining > 0): ?>
+        <option value="<?= $time ?>">
+            <?= $label ?> (<?= $remaining ?> slot<?= $remaining > 1 ? 's' : '' ?> left)
+        </option>
+    <?php endif; ?>
+<?php endforeach; ?>
                             </select>
                         </div>
                     </div>

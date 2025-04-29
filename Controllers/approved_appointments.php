@@ -19,14 +19,15 @@ if (isset($_GET['id'])) {
 
     if ($appointment) {
         // Check for conflict before confirming
-        $check = $conn->prepare("SELECT * FROM appointment_requests 
+        $check = $conn->prepare("SELECT COUNT(*) as count FROM appointment_requests 
             WHERE appointment_date = ? AND appointment_time = ? AND status = 'confirmed'");
         $check->bind_param("ss", $appointment['appointment_date'], $appointment['appointment_time']);
         $check->execute();
         $conflict = $check->get_result();
+        $row = $conflict->fetch_assoc();
 
-        if ($conflict->num_rows > 0) {
-            echo "<script>alert('Time slot already confirmed for another student.');</script>";
+        if ($row['count'] >= 10) {
+            echo "<script>alert('Time slot fully booked.');</script>";
         } else {
             // Confirm the appointment
             $confirm = $conn->prepare("UPDATE appointment_requests SET status = 'confirmed', confirmed_at = NOW() WHERE id = ?");

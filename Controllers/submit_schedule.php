@@ -2,34 +2,40 @@
 require_once '../Config/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $student_id     = $_POST['student_id'];
+    $student_id         = $_POST['student_id'];
     $first_name         = $_POST['first_name'];
     $last_name          = $_POST['last_name'];
     $email              = $_POST['email'];
     $appointment_date   = $_POST['appointment_date'];
     $appointment_time   = $_POST['appointment_time'];
 
-    // Check for existing confirmed appointment on that date and time
-    $check = $conn->prepare("SELECT * FROM appointment_requests 
-        WHERE appointment_date = ? AND appointment_time = ? AND status = 'confirmed'");
-    $check->bind_param("ss", $appointment_date, $appointment_time);
+    // Extract the hour (e.g. "09") from HH:MM:SS
+    $hour = substr($appointment_time, 0, 2);
+    $start_time = $hour . ":00:00";
+    $end_time   = $hour . ":59:59";
+
+    // Count how many appointments are already booked in that hour
+    $check = $conn->prepare("SELECT COUNT(*) as count FROM appointment_requests 
+        WHERE appointment_date = ? 
+        AND appointment_time BETWEEN ? AND ?");
+    $check->bind_param("sss", $appointment_date, $start_time, $end_time);
     $check->execute();
     $result = $check->get_result();
+    $row = $result->fetch_assoc();
 
-    if ($result->num_rows > 0) {
-        echo "Sorry, this time slot is already taken. Please choose a different one.";
+    if ($row['count'] >= 10) {
+        echo "Sorry, this hour is fully booked. Please choose a different time.";
     } else {
-        // Proceed to insert request
-        $stmt = $conn->prepare("
-            INSERT INTO appointment_requests (
-                student_id, first_name, last_name, email, appointment_date, appointment_time
-            ) VALUES (?, ?, ?, ?, ?, ?)
-        ");
+        // Insert appointment request
+        $stmt = $conn->prepare("INSERT INTO appointment_requests (
+            student_id, first_name, last_name, email, appointment_date, appointment_time
+        ) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $student_id, $first_name, $last_name, $email, $appointment_date, $appointment_time);
 
         if ($stmt->execute()) {
             echo "Appointment request submitted. Waiting for confirmation!";
             header('Location: ../index.php');
+            exit();
         } else {
             echo "Error: " . $stmt->error;
         }
